@@ -1,10 +1,12 @@
 import React from "react";
 import { gql} from "apollo-boost";
 import { ThemeProvider } from "styled-components";
+import { HashRouter as Router } from "react-router-dom";
 import GlobalStyles from "../Styles/GlobalStyles"
 import Theme from "../Styles/Theme";
-import Router from "./Router";
+import Routes from "./Routes";
 import { useQuery } from "react-apollo-hooks";
+import Footer from "./Footer"
 
 
 const QUERY = gql`
@@ -19,10 +21,14 @@ export default () => {
   } = useQuery(QUERY);
 
 return (
-<ThemeProvider theme={Theme}>
+  <ThemeProvider theme={Theme}>
       <>
         <GlobalStyles />
-        <Router isLoggedIn={isLoggedIn}/>
+        <Router>
+          <Routes isLoggedIn={isLoggedIn} />
+        </Router>
+        <Footer />
+
       </>
   </ThemeProvider>
   );
