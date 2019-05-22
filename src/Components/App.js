@@ -7,6 +7,8 @@ import Theme from "../Styles/Theme";
 import Routes from "./Routes";
 import { useQuery } from "react-apollo-hooks";
 import Footer from "./Footer"
+import Header from "./Header";
+
 
 
 const QUERY = gql`
@@ -22,14 +24,16 @@ export default () => {
 
 return (
   <ThemeProvider theme={Theme}>
+  <>
+    <GlobalStyles />
+    <Router>
       <>
-        <GlobalStyles />
-        <Router>
+        {isLoggedIn && <Header />}
           <Routes isLoggedIn={isLoggedIn} />
-        </Router>
-        <Footer />
-
+          <Footer />
       </>
-  </ThemeProvider>
+    </Router>
+  </>
+</ThemeProvider>
   );
 }
