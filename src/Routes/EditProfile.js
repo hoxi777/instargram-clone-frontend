@@ -1,1 +1,1 @@
-export default () => "EditProfile";
+export default () => "Edit profile";
