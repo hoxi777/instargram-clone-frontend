@@ -1,2 +1,2 @@
-#Instargram clone Frontend
+# Instargram clone Frontend
 
